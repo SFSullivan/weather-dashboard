@@ -1,2 +1,6 @@
-var searchCity;
-var searchBttn = document.querySelector('#searchBttn')
+$(document).ready(function() {
+
+    var searchCity;
+    var searchBttn = document.querySelector('#searchBttn')
+    
+})

@@ -1,7 +1,8 @@
 $(document).ready(function() {
 
     var apiKey = 'e0ed1fc47c1a1e616628ccbc08bf80db'
-    var searchCity;
+    var lookupCity;
+    var textSearch = document.querySelector('#textSearch')
     var searchBttn = document.querySelector('#searchBttn')
     var day1 = moment().format('MMMM Do');
     
@@ -60,6 +61,7 @@ $(document).ready(function() {
         showHistory();
     }
 
+    //displaying search history
     function showHistory() {
         var searchedArray = JSON.parse(localStorage.getItem('history'));
         var historyEl = $('#history')
@@ -70,6 +72,20 @@ $(document).ready(function() {
 
         searchedArray[0].innerHTML = '';
         console.log(historyEl)
+
+        for (var i =0; i<5; i++) {
+            var histButton = document.createElement('button');
+
+            button.setAttribute('class', 'priorSearch')
+
+            button.textCon = searchedArray[i];
+            button.addEventListener('click', function(event) {
+                getWeather(event.target.textCon)
+            })
+            historyEl.append(button);
+        }
     }
+
+    showHistory();
 
 })

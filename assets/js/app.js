@@ -15,7 +15,8 @@ $(document).ready(function() {
     searchBttn.onclick = function () {
         console.log('click works')
         lookupCity = textSearch.value;
-        getWeather(lookupCity)
+        saveCityData = (lookupCity);
+        getWeather(lookupCity);
         //storeData(lookupCity)
     }
 
@@ -46,11 +47,29 @@ $(document).ready(function() {
                             $(this).text(weatherForecast);
                             i++;
                         })
-
                     
                     })
             })
     }
 
+    function saveCityData(searchHistory) {
+        var searchedArray = JSON.parse(localStorage.getItem('history')) || [];
+        searchedArray.push(searchHistory);
+
+        localStorage.setItem('history', JSON.stringify(historyArray));
+        showHistory();
+    }
+
+    function showHistory() {
+        var searchedArray = JSON.parse(localStorage.getItem('history'));
+        var historyEl = $('#history')
+
+        if (!searchedArray) {
+            return;
+        }
+
+        searchedArray[0].innerHTML = '';
+        console.log(historyEl)
+    }
 
 })

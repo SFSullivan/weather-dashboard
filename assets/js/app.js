@@ -29,6 +29,26 @@ $(document).ready(function() {
                 var lon = data[0].lon
                 console.log(lat, lon)
                 $('#city_searched').text(lookupCity)
+
+                fetch('https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&units=imperial&appid=' + apiKey)
+                    .then(function(res) {
+                        return res.json();
+                    })
+                    .then(function(data) {
+                        console.log(data);
+
+                        var i = 0;
+
+                        $('.forecast').each(function () {
+                            var weatherForecast = data.daily[i].weather[0].description;
+
+                            console.log(weatherForecast);
+                            $(this).text(weatherForecast);
+                            i++;
+                        })
+
+                    
+                    })
             })
     }
 

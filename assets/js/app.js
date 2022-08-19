@@ -21,7 +21,7 @@ $(document).ready(function() {
     }
 
     function getWeather(lookupCity) {
-        fetch('http://api.openweathermap.org/geo/1.0/direct?q=' + lookupCity + '&limit=5&appid=' + apiKey)
+        fetch('https://api.openweathermap.org/geo/1.0/direct?q=' + lookupCity + '&limit=5&appid=' + apiKey)
             .then(function (res) {
                 return res.json();
             })

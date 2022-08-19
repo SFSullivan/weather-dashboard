@@ -53,39 +53,39 @@ $(document).ready(function() {
             })
     }
 
-    function saveCityData(searchHistory) {
-        var searchedArray = JSON.parse(localStorage.getItem('history')) || [];
-        searchedArray.push(searchHistory);
+    // function saveCityData(searchHistory) {
+    //     var searchedArray = JSON.parse(localStorage.getItem('history')) || [];
+    //     searchedArray.push(searchHistory);
 
-        localStorage.setItem('history', JSON.stringify(historyArray));
-        showHistory();
-    }
+    //     localStorage.setItem('history', JSON.stringify(historyArray));
+    //     showHistory();
+    // }
 
-    //displaying search history
-    function showHistory() {
-        var searchedArray = JSON.parse(localStorage.getItem('history'));
-        var historyEl = $('#history')
+    // //displaying search history
+    // function showHistory() {
+    //     var searchedArray = JSON.parse(localStorage.getItem('history'));
+    //     var historyEl = $('#history')
 
-        if (!searchedArray) {
-            return;
-        }
+    //     if (!searchedArray) {
+    //         return;
+    //     }
 
-        searchedArray[0].innerHTML = '';
-        console.log(historyEl)
+    //     searchedArray[0].innerHTML = '';
+    //     console.log(historyEl)
 
-        for (var i =0; i<5; i++) {
-            var histButton = document.createElement('button');
+    //     for (var i =0; i<5; i++) {
+    //         var histButton = document.createElement('button');
 
-            button.setAttribute('class', 'priorSearch')
+    //         button.setAttribute('class', 'priorSearch')
 
-            button.textCon = searchedArray[i];
-            button.addEventListener('click', function(event) {
-                getWeather(event.target.textCon)
-            })
-            historyEl.append(button);
-        }
-    }
+    //         button.textCon = searchedArray[i];
+    //         button.addEventListener('click', function(event) {
+    //             getWeather(event.target.textCon)
+    //         })
+    //         historyEl.append(button);
+    //     }
+    // }
 
-    showHistory();
+    // showHistory();
 
 })
